@@ -8,8 +8,6 @@ case class Const[A](a: A) extends IOMonad[A] {
   def map[B](f: A => B): IOMonad[B] = unit(f(a))
 
   def flatMap[B](f: A => IOMonad[B]): IOMonad[B] = f(a)
-
-  def get: A = a
 }
 
 case object ReadLn extends IOMonad[String] {
