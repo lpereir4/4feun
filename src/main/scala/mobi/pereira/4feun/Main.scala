@@ -13,7 +13,7 @@ object Main {
       password <- getPassword()
     } yield (login, password)
 
-    lazy val program: Function1[Unit,IOMonad[_]] = (Unit) => for {
+    def program: IOMonad[Unit] = for {
       _ <- WriteLn("Bonjour,")
       _ <- Write("veuillez saisir votre login :")
       l <- ReadLn
@@ -27,12 +27,12 @@ object Main {
         case Some((login, password)) => Const(println("Bienvenue " + login))
         case _ => {
           println("Données erronées.")
-          program()
+          program
         }
       }
     } yield creds
 
-    val a = program()
+    val a = program
     println(a)
   }
 }
