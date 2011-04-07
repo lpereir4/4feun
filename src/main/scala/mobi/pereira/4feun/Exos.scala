@@ -53,7 +53,7 @@ object Sequencing {
   def main(args: Array[String]) {
     def assertEquals[A](a1: A, a2: A) {
       if (a1 != a2)
-        error("Assertion error. Expected: " + a1 + " Actual: " + a2)
+        sys.error("Assertion error. Expected: " + a1 + " Actual: " + a2)
     }
 
     def assertInterEquals[A](a1: Inter[A], a2: Inter[A]) {

@@ -75,7 +75,7 @@ object MonadicFunctions {
 
   // 12. Replace error("todo") with an implementation
   def lift2[M[_], A, B, C](f: (A, B) => C, a: M[A], b: M[B], m: Monad[M]): M[C] =
-    error("todo")
+    sys.error("todo")
 
   // lift3, lift4, etc. Interesting question: Can we have liftN?
 }
